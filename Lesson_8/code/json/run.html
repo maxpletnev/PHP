@@ -1,0 +1,17 @@
+<script src="jquery.js"></script>
+
+<p>Текущее время...</p>
+
+<script>
+    function getTime(){
+        $.getJSON("json.php",function(answer){
+          var data = "";
+            $.each(answer,function(key,value){
+                data += key+":"+value+"<br>";
+            });
+            $("p").html(data);
+        });
+      
+    }
+    setInterval(getTime,1000);
+</script>
